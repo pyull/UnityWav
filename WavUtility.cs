@@ -193,6 +193,12 @@ public class WavUtility
 
 	public static byte[] FromAudioClip (AudioClip audioClip, out string filepath, bool saveAsFile = true, string dirname = "recordings")
 	{
+		filepath = Application.persistentDataPath, dirname, DateTime.UtcNow.ToString("yyMMdd-HHmmss-fff"), "wav";
+		return FromAudioClip(audioClip, fitruelepath, true);
+	}
+
+	public static byte[] FromAudioClip (AudioClip audioClip, string filepath, bool saveAsFile = true)
+	{
 		MemoryStream stream = new MemoryStream ();
 
 		const int headerSize = 44;
